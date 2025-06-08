@@ -291,10 +291,11 @@ class Trimmer {
     videoFileName ??= "${videoName}_trimmed:$formattedDateTime";
     videoFileName = videoFileName.replaceAll(' ', '_');
 
-    String path = await _createFolderInAppDocDir(
-      videoFolderName,
-      storageDir,
-    ).whenComplete(() => debugPrint("Retrieved Trimmer folder"));
+    String? path = storageDir;
+    // String path = await _createFolderInAppDocDir(
+    //   videoFolderName,
+    //   storageDir,
+    // ).whenComplete(() => debugPrint("Retrieved Trimmer folder"));
 
     Duration startPoint = Duration(milliseconds: startValue.toInt());
     Duration endPoint = Duration(milliseconds: endValue.toInt());
